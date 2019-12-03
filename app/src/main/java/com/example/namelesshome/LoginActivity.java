@@ -2,7 +2,9 @@ package com.example.namelesshome;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -62,10 +64,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             public void onResponse(JSONObject response) {
                 try{
                     String token = response.getString("token");
+                   // Toast.makeText(LoginActivity.this, token, Toast.LENGTH_SHORT).show();
+                    savePreferences(token);
                 }catch (JSONException e){
                     e.printStackTrace();
                 }
-                Toast.makeText(LoginActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
                 email.setText("");
                 pass.setText("");
                 mainActivity();
@@ -83,5 +86,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void mainActivity(){
         Intent it = new Intent(getApplicationContext(),MainActivity.class);
         startActivity(it);
+    }
+
+    public void savePreferences(String token){
+        SharedPreferences preferences = getSharedPreferences("credentials_Nameless", Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("token_Nameless", token);
+        editor.commit();
     }
 }

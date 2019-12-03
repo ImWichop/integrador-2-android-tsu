@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".LightsActivity"></activity>
+        <activity android:name=".GarageActivity"></activity>
+        <activity android:name=".DoorsActivity" />
+        <activity android:name=".LightsActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".WelcomeActivity" />
