@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(doors);
                 break;
             case R.id.garage:
-                Intent garage = new Intent(getApplicationContext(),GarageActivity.class);
+                Intent garage = new Intent(getApplicationContext(),AlarmActivity.class);
                 startActivity(garage);
                 break;
             case R.id.logout:

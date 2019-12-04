@@ -25,9 +25,9 @@
         android:id="@+id/room1"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/bg_container"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +50,7 @@
             android:fontFamily="@font/regular"
             android:text="Room 1"
             android:textColor="@color/white"
-            android:textSize="25sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageRoom1"
             app:layout_constraintTop_toTopOf="parent" />
@@ -60,21 +60,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
+            android:background="@drawable/button_light"
+            android:fontFamily="@font/bold"
+            android:onClick="onClick"
             android:text="On"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/button_light"
-            android:textColor="@color/white"/>
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/room2"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/bg_container"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -97,7 +99,7 @@
             android:fontFamily="@font/regular"
             android:text="Room 2"
             android:textColor="@color/white"
-            android:textSize="25sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageRoom2"
             app:layout_constraintTop_toTopOf="parent" />
@@ -107,21 +109,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
+            android:background="@drawable/button_light"
+            android:fontFamily="@font/bold"
+            android:onClick="onClick"
             android:text="On"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/button_light"
-            android:textColor="@color/white"/>
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/room3"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/bg_container"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -144,7 +148,7 @@
             android:fontFamily="@font/regular"
             android:text="Room 3"
             android:textColor="@color/white"
-            android:textSize="25sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageRoom3"
             app:layout_constraintTop_toTopOf="parent" />
@@ -154,21 +158,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
+            android:background="@drawable/button_light"
+            android:fontFamily="@font/bold"
+            android:onClick="onClick"
             android:text="On"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/button_light"
-            android:textColor="@color/white"/>
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/room4"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/bg_container"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -179,7 +185,7 @@
             android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:src="@drawable/ic_bed"
+            android:src="@drawable/ic_idea"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -191,7 +197,7 @@
             android:fontFamily="@font/regular"
             android:text="Garage"
             android:textColor="@color/white"
-            android:textSize="25sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageRoom4"
             app:layout_constraintTop_toTopOf="parent" />
@@ -201,21 +207,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
+            android:background="@drawable/button_light"
+            android:fontFamily="@font/bold"
+            android:onClick="onClick"
             android:text="On"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/button_light"
-            android:textColor="@color/white"/>
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/room5"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/bg_container"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -226,7 +234,7 @@
             android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:src="@drawable/ic_bed"
+            android:src="@drawable/ic_idea"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -236,9 +244,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:fontFamily="@font/regular"
-            android:text="Sala 1"
+            android:text="Living"
             android:textColor="@color/white"
-            android:textSize="25sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageRoom5"
             app:layout_constraintTop_toTopOf="parent" />
@@ -248,59 +256,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
-            android:text="On"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             android:background="@drawable/button_light"
-            android:textColor="@color/white"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/room6"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/bg_container"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/room5">
-
-        <ImageView
-            android:id="@+id/imageRoom6"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:src="@drawable/ic_bed"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:fontFamily="@font/regular"
-            android:text="Sala 2"
+            android:fontFamily="@font/bold"
+            android:onClick="onClick"
+            android:text="On"
             android:textColor="@color/white"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageRoom6"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/btnRoom6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="15dp"
-            android:text="On"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/button_light"
-            android:textColor="@color/white"/>
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
