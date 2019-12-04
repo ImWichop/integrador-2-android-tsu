@@ -93,6 +93,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("token_Nameless", token);
-        editor.commit();
+        editor.apply();
     }
 }

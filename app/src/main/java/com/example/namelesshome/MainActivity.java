@@ -2,7 +2,9 @@ package com.example.namelesshome;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -31,8 +33,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(garage);
                 break;
             case R.id.logout:
-                Toast.makeText(this, "LOGOUT", Toast.LENGTH_SHORT).show();
+                logout();
                 break;
         }
+    }
+
+    public void logout(){
+        SharedPreferences preferences = getSharedPreferences("credentials_Nameless", Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("token_Nameless", "null");
+        editor.apply();
+
+        Intent it = new Intent(getApplicationContext(),WelcomeActivity.class);
+        startActivity(it);
     }
 }

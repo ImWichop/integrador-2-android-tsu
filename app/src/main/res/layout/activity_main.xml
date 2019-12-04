@@ -24,6 +24,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/leds"
+        android:padding="15dp"
         android:layout_width="0dp"
         android:layout_height="90dp"
         android:layout_marginStart="20dp"
@@ -39,7 +40,6 @@
             android:id="@+id/imageViewleds"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
             android:src="@drawable/ic_diode"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -60,6 +60,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/doors"
+        android:padding="15dp"
         android:layout_width="0dp"
         android:layout_height="90dp"
         android:layout_marginStart="20dp"
@@ -75,7 +76,6 @@
             android:id="@+id/imageViewdoors"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
             android:src="@drawable/ic_opened_door_aperture"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -97,6 +97,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/garage"
+        android:padding="15dp"
         android:layout_width="0dp"
         android:layout_height="90dp"
         android:layout_marginStart="20dp"
@@ -112,7 +113,6 @@
             android:id="@+id/imageViewgarage"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
             android:src="@drawable/ic_bell"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -133,6 +133,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/logout"
+        android:padding="15dp"
         android:layout_width="0dp"
         android:layout_height="90dp"
         android:layout_marginStart="20dp"
@@ -148,7 +149,6 @@
             android:id="@+id/imageViewlogout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
             android:src="@drawable/ic_logout"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
