@@ -62,7 +62,7 @@
             android:background="@drawable/button_light"
             android:fontFamily="@font/bold"
             android:onClick="onClick"
-            android:text="ON"
+            android:text=""
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
