@@ -42,7 +42,7 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
         Button b = (Button)v;
         String buttonText = b.getText().toString();
         String value = "";
-        if(buttonText == "ACTIVE"){
+        if(buttonText.equals("ACTIVE")){
             value = "INACTIVE";
             b.setText("INACTIVE");
         }else {
@@ -53,7 +53,6 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
             case R.id.btnAlarm1:
                 turnOn("https://io.adafruit.com/api/v2/Castorena/feeds/alarma/data", value);
                 changeColor(b);
-                Toast.makeText(this, "Alarm", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
@@ -100,6 +99,7 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
                     String respuesta = response.getString("value");
                     Button b = findViewById(idBtn);
                     b.setText(respuesta);
+                    changeColor(b);
                     Log.d("OnStatusLED", respuesta);
                 }catch (JSONException e){
                     e.printStackTrace();
@@ -124,7 +124,7 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
 
 
     public void changeColor(Button b){
-        if(b.getText() != "ACTIVE"){
+        if(!b.getText().equals("ACTIVE")){
             b.setBackgroundResource(R.drawable.button_red);
         }else {
             b.setBackgroundResource(R.drawable.button_light);

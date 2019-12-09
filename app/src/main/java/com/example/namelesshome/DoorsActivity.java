@@ -44,7 +44,7 @@ public class DoorsActivity extends AppCompatActivity implements View.OnClickList
         Button b = (Button)v;
         String buttonText = b.getText().toString();
         String value = "";
-        if(buttonText == "OPEN"){
+        if(buttonText.equals("OPEN")){
             value = "CLOSE";
             b.setText("CLOSE");
         }else {
@@ -55,22 +55,18 @@ public class DoorsActivity extends AppCompatActivity implements View.OnClickList
             case R.id.btnMainDoor:
                 turnOn("https://io.adafruit.com/api/v2/Castorena/groups/puertas/feeds/puertas.puerta1/data", value);
                 changeColor(b);
-                Toast.makeText(this, "DoorMain", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btnDoor1:
                 turnOn("https://io.adafruit.com/api/v2/Castorena/groups/puertas/feeds/puertas.puerta2/data", value);
                 changeColor(b);
-                Toast.makeText(this, "Room1", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btnDoor2:
                 turnOn("https://io.adafruit.com/api/v2/Castorena/groups/puertas/feeds/puertas.puerta3/data", value);
                 changeColor(b);
-                Toast.makeText(this, "Room2", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btnGarageDoor:
                 turnOn("https://io.adafruit.com/api/v2/Castorena/groups/puertas/feeds/puertas.garage/data", value);
                 changeColor(b);
-                Toast.makeText(this, "Garage", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
@@ -117,6 +113,7 @@ public class DoorsActivity extends AppCompatActivity implements View.OnClickList
                     String respuesta = response.getString("value");
                     Button b = findViewById(idBtn);
                     b.setText(respuesta);
+                    changeColor(b);
                     Log.d("OnStatusLED", respuesta);
                 }catch (JSONException e){
                     e.printStackTrace();
@@ -140,7 +137,7 @@ public class DoorsActivity extends AppCompatActivity implements View.OnClickList
     }
 
     public void changeColor(Button b){
-        if(b.getText() != "OPEN"){
+        if(!b.getText().equals("OPEN")){
             b.setBackgroundResource(R.drawable.button_red);
         }else {
             b.setBackgroundResource(R.drawable.button_light);

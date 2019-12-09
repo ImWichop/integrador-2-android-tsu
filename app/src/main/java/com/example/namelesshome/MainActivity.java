@@ -1,8 +1,10 @@
 package com.example.namelesshome;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -59,33 +61,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void logout(){
-        String url = "http://home4.uttics.com/api/logout";
-        JsonObjectRequest request =  new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
+        AlertDialog.Builder confirm =  new AlertDialog.Builder(this);
+        confirm.setTitle("Logout").setMessage("Do you want to logout?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String url = "http://home4.uttics.com/api/logout";
+                        JsonObjectRequest request =  new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
 
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d("OnErrorResponse: ", error.toString());
-            }
-        }){
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError{
-                Map<String, String> params =  new HashMap<String,String>();
-                SharedPreferences preferences = getSharedPreferences("credentials_Nameless", Context.MODE_PRIVATE);
-                String token = preferences.getString("token_Nameless","null");
-                params.put("Authorization","Bearer " + token);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putString("token_Nameless", "null");
-                editor.apply();
-                Intent it = new Intent(getApplicationContext(),WelcomeActivity.class);
-                startActivity(it);
-                return params;
-            }
-        };
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Log.d("OnErrorResponse: ", error.toString());
+                            }
+                        }){
+                            @Override
+                            public Map<String, String> getHeaders() throws AuthFailureError{
+                                Map<String, String> params =  new HashMap<String,String>();
+                                SharedPreferences preferences = getSharedPreferences("credentials_Nameless", Context.MODE_PRIVATE);
+                                String token = preferences.getString("token_Nameless","null");
+                                params.put("Authorization","Bearer " + token);
+                                SharedPreferences.Editor editor = preferences.edit();
+                                editor.putString("token_Nameless", "null");
+                                editor.apply();
+                                Intent it = new Intent(getApplicationContext(),WelcomeActivity.class);
+                                startActivity(it);
+                                return params;
+                            }
+                        };
 
-        fRequestQueue.add(request);
+                        fRequestQueue.add(request);
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(MainActivity.this, "Cancel", Toast.LENGTH_SHORT).show();
+                    }
+                }).show();
     }
 }

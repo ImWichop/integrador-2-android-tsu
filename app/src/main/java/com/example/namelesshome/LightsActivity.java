@@ -49,7 +49,7 @@ public class LightsActivity extends AppCompatActivity implements View.OnClickLis
         Button b = (Button)v;
         String buttonText = b.getText().toString();
         String value = "";
-        if(buttonText == "ON"){
+        if(buttonText.equals("ON")){
             value = "OFF";
             b.setText("OFF");
         }else {
@@ -60,27 +60,22 @@ public class LightsActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.btnRoom1:
                 turnOn("https://io.adafruit.com/api/v2/Castorena/feeds/cuarto1/data", value);
                 changeColor(b);
-                Toast.makeText(this, "Room1", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btnRoom2:
                 turnOn("https://io.adafruit.com/api/v2/Castorena/feeds/cuarto2/data", value);
                 changeColor(b);
-                Toast.makeText(this, "Room2", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btnRoom3:
                 turnOn("https://io.adafruit.com/api/v2/Castorena/feeds/cuarto3/data", value);
                 changeColor(b);
-                Toast.makeText(this, "Room3", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btnRoom4:
                 turnOn("https://io.adafruit.com/api/v2/Castorena/feeds/cuarto4/data",value);
                 changeColor(b);
-                Toast.makeText(this, "Room4", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btnRoom5:
                 turnOn("https://io.adafruit.com/api/v2/Castorena/feeds/cuarto5/data",value);
                 changeColor(b);
-                Toast.makeText(this, "Room5", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
@@ -127,6 +122,7 @@ public class LightsActivity extends AppCompatActivity implements View.OnClickLis
                     String respuesta = response.getString("value");
                     Button b = findViewById(idBtn);
                     b.setText(respuesta);
+                    changeColor(b);
                     Log.d("OnStatusLED", respuesta);
                 }catch (JSONException e){
                     e.printStackTrace();
@@ -150,7 +146,7 @@ public class LightsActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     public void changeColor(Button b){
-        if(b.getText() != "ON"){
+        if(!b.getText().equals("ON")){
             b.setBackgroundResource(R.drawable.button_red);
         }else {
             b.setBackgroundResource(R.drawable.button_light);
