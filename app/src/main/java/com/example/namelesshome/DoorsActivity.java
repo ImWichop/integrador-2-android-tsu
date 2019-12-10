@@ -36,7 +36,6 @@ public class DoorsActivity extends AppCompatActivity implements View.OnClickList
         checkStatus("https://io.adafruit.com/api/v2/Castorena/feeds/puertas.puerta1/data/last", R.id.btnMainDoor);
         checkStatus("https://io.adafruit.com/api/v2/Castorena/feeds/puertas.puerta2/data/last", R.id.btnDoor1);
         checkStatus("https://io.adafruit.com/api/v2/Castorena/feeds/puertas.puerta3/data/last", R.id.btnDoor2);
-        checkStatus("https://io.adafruit.com/api/v2/Castorena/feeds/puertas.garage/data/last", R.id.btnGarageDoor);
     }
 
     @Override
@@ -62,10 +61,6 @@ public class DoorsActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.btnDoor2:
                 turnOn("https://io.adafruit.com/api/v2/Castorena/groups/puertas/feeds/puertas.puerta3/data", value);
-                changeColor(b);
-                break;
-            case R.id.btnGarageDoor:
-                turnOn("https://io.adafruit.com/api/v2/Castorena/groups/puertas/feeds/puertas.garage/data", value);
                 changeColor(b);
                 break;
         }
