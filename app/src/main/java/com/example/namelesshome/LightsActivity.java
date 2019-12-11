@@ -1,6 +1,7 @@
 package com.example.namelesshome;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Context;
 import android.content.Intent;
@@ -29,6 +30,7 @@ import java.util.Map;
 public class LightsActivity extends AppCompatActivity implements View.OnClickListener {
     private VolleyS volley;
     protected RequestQueue fRequestQueue;
+    SwipeRefreshLayout refreshLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,12 +38,25 @@ public class LightsActivity extends AppCompatActivity implements View.OnClickLis
 
         volley = VolleyS.getInstance(this.getApplicationContext());
         fRequestQueue = volley.getRequestQueue();
+        refreshLayout = findViewById(R.id.refreshLights);
 
         checkStatus("https://io.adafruit.com/api/v2/Castorena/feeds/cuarto1/data/last", R.id.btnRoom1);
         checkStatus("https://io.adafruit.com/api/v2/Castorena/feeds/cuarto2/data/last", R.id.btnRoom2);
         checkStatus("https://io.adafruit.com/api/v2/Castorena/feeds/cuarto3/data/last", R.id.btnRoom3);
         checkStatus("https://io.adafruit.com/api/v2/Castorena/feeds/cuarto4/data/last", R.id.btnRoom4);
         checkStatus("https://io.adafruit.com/api/v2/Castorena/feeds/cuarto5/data/last", R.id.btnRoom5);
+
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                checkStatus("https://io.adafruit.com/api/v2/Castorena/feeds/cuarto1/data/last", R.id.btnRoom1);
+                checkStatus("https://io.adafruit.com/api/v2/Castorena/feeds/cuarto2/data/last", R.id.btnRoom2);
+                checkStatus("https://io.adafruit.com/api/v2/Castorena/feeds/cuarto3/data/last", R.id.btnRoom3);
+                checkStatus("https://io.adafruit.com/api/v2/Castorena/feeds/cuarto4/data/last", R.id.btnRoom4);
+                checkStatus("https://io.adafruit.com/api/v2/Castorena/feeds/cuarto5/data/last", R.id.btnRoom5);
+                refreshLayout.setRefreshing(false);
+            }
+        });
     }
 
     @Override

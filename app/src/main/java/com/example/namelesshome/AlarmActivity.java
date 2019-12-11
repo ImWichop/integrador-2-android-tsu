@@ -1,6 +1,7 @@
 package com.example.namelesshome;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +26,7 @@ import java.util.Map;
 public class AlarmActivity extends AppCompatActivity implements View.OnClickListener {
     private VolleyS volley;
     protected RequestQueue fRequestQueue;
+    SwipeRefreshLayout refreshLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +34,16 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
 
         volley = VolleyS.getInstance(this.getApplicationContext());
         fRequestQueue = volley.getRequestQueue();
-
+        refreshLayout = findViewById(R.id.refreshAlarms);
         checkStatus("https://io.adafruit.com/api/v2/Castorena/feeds/alarma/data/last",R.id.btnAlarm1);
 
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                checkStatus("https://io.adafruit.com/api/v2/Castorena/feeds/alarma/data/last",R.id.btnAlarm1);
+                refreshLayout.setRefreshing(false);
+            }
+        });
     }
 
     @Override
