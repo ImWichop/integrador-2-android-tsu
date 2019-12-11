@@ -45,28 +45,26 @@ public class DoorsActivity extends AppCompatActivity implements View.OnClickList
         String value = "";
         if(buttonText.equals("OPEN")){
             value = "CLOSE";
-            b.setText("CLOSE");
         }else {
             value = "OPEN";
-            b.setText("OPEN");
         }
         switch (v.getId()){
             case R.id.btnMainDoor:
-                turnOn("https://io.adafruit.com/api/v2/Castorena/groups/puertas/feeds/puertas.puerta1/data", value);
+                turnOn("https://io.adafruit.com/api/v2/Castorena/groups/puertas/feeds/puertas.puerta1/data", value,b);
                 changeColor(b);
                 break;
             case R.id.btnDoor1:
-                turnOn("https://io.adafruit.com/api/v2/Castorena/groups/puertas/feeds/puertas.puerta2/data", value);
+                turnOn("https://io.adafruit.com/api/v2/Castorena/groups/puertas/feeds/puertas.puerta2/data", value,b);
                 changeColor(b);
                 break;
             case R.id.btnDoor2:
-                turnOn("https://io.adafruit.com/api/v2/Castorena/groups/puertas/feeds/puertas.puerta3/data", value);
+                turnOn("https://io.adafruit.com/api/v2/Castorena/groups/puertas/feeds/puertas.puerta3/data", value,b);
                 changeColor(b);
                 break;
         }
     }
 
-    public void turnOn(String url,String value){
+    public void turnOn(String url, String value, final Button b){
         JSONObject data =  new JSONObject();
         try {
             data.put("value", value);
@@ -78,6 +76,8 @@ public class DoorsActivity extends AppCompatActivity implements View.OnClickList
             public void onResponse(JSONObject response) {
                 try{
                     String respuesta = response.getString("value");
+                    b.setText(respuesta);
+                    changeColor(b);
                     Log.d("OnTurnLED", respuesta);
                 }catch (JSONException e){
                     e.printStackTrace();

@@ -44,20 +44,18 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
         String value = "";
         if(buttonText.equals("ACTIVE")){
             value = "INACTIVE";
-            b.setText("INACTIVE");
         }else {
             value = "ACTIVE";
-            b.setText("ACTIVE");
         }
         switch (v.getId()){
             case R.id.btnAlarm1:
-                turnOn("https://io.adafruit.com/api/v2/Castorena/feeds/alarma/data", value);
+                turnOn("https://io.adafruit.com/api/v2/Castorena/feeds/alarma/data", value,b);
                 changeColor(b);
                 break;
         }
     }
 
-    public void turnOn(String url,String value){
+    public void turnOn(String url, String value, final Button b){
         JSONObject data =  new JSONObject();
         try {
             data.put("value", value);
@@ -69,6 +67,8 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
             public void onResponse(JSONObject response) {
                 try{
                     String respuesta = response.getString("value");
+                    b.setText(respuesta);
+                    changeColor(b);
                     Log.d("OnTurnLED", respuesta);
                 }catch (JSONException e){
                     e.printStackTrace();

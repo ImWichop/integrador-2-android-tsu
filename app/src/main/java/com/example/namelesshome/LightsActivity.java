@@ -51,36 +51,29 @@ public class LightsActivity extends AppCompatActivity implements View.OnClickLis
         String value = "";
         if(buttonText.equals("ON")){
             value = "OFF";
-            b.setText("OFF");
         }else {
             value = "ON";
-            b.setText("ON");
         }
         switch (v.getId()){
             case R.id.btnRoom1:
-                turnOn("https://io.adafruit.com/api/v2/Castorena/feeds/cuarto1/data", value);
-                changeColor(b);
+                turnOn("https://io.adafruit.com/api/v2/Castorena/feeds/cuarto1/data", value,b);
                 break;
             case R.id.btnRoom2:
-                turnOn("https://io.adafruit.com/api/v2/Castorena/feeds/cuarto2/data", value);
-                changeColor(b);
+                turnOn("https://io.adafruit.com/api/v2/Castorena/feeds/cuarto2/data", value,b);
                 break;
             case R.id.btnRoom3:
-                turnOn("https://io.adafruit.com/api/v2/Castorena/feeds/cuarto3/data", value);
-                changeColor(b);
+                turnOn("https://io.adafruit.com/api/v2/Castorena/feeds/cuarto3/data", value,b);
                 break;
             case R.id.btnRoom4:
-                turnOn("https://io.adafruit.com/api/v2/Castorena/feeds/cuarto4/data",value);
-                changeColor(b);
+                turnOn("https://io.adafruit.com/api/v2/Castorena/feeds/cuarto4/data",value,b);
                 break;
             case R.id.btnRoom5:
-                turnOn("https://io.adafruit.com/api/v2/Castorena/feeds/cuarto5/data",value);
-                changeColor(b);
+                turnOn("https://io.adafruit.com/api/v2/Castorena/feeds/cuarto5/data",value,b);
                 break;
         }
     }
 
-    public void turnOn(String url,String value){
+    public void turnOn(String url, String value, final Button b){
         JSONObject data =  new JSONObject();
         try {
             data.put("value", value);
@@ -92,6 +85,8 @@ public class LightsActivity extends AppCompatActivity implements View.OnClickLis
             public void onResponse(JSONObject response) {
                 try{
                     String respuesta = response.getString("value");
+                    b.setText(respuesta);
+                    changeColor(b);
                     Log.d("OnTurnLED", respuesta);
                 }catch (JSONException e){
                     e.printStackTrace();
